@@ -1,0 +1,157 @@
+{
+  "common": {
+    "collection": "Colección",
+    "explore": "Explora la belleza matemática.",
+    "configuration": "Configuración",
+    "saveImage": "Guardar Imagen",
+    "layers": "Capas",
+    "zoom": "Zoom",
+    "depth": "Profundidad",
+    "breathingAnimation": "Animación Respiración",
+    "iterations": "Iteraciones",
+    "angle": "Ángulo",
+    "windAngle": "Ángulo de Viento",
+    "frequency": "Frecuencia",
+    "speed": "Velocidad",
+    "spacing": "Espaciado",
+    "petals": "Pétalos",
+    "cycleSpeed": "Velocidad del Ciclo",
+    "tips": "Puntas",
+    "factor": "Factor",
+    "rotationAxis": "Eje de Rotación",
+    "real": "Real (Re)",
+    "imaginary": "Imaginario (Im)"
+  },
+  "fractals": {
+    "flower": {
+      "title": "Flor de la Vida",
+      "subtitle": "Geometría Sagrada",
+      "desc": "Patrón de círculos superpuestos que representa las formas fundamentales del espacio."
+    },
+    "bronchial": {
+      "title": "Bronquios",
+      "subtitle": "Biomímesis",
+      "desc": "Estructuras ramificadas recursivas similares a los pulmones."
+    },
+    "lsystem": {
+      "title": "Sistema-L",
+      "subtitle": "Árbol Algorítmico",
+      "desc": "Reglas básicas de reescritura de texto para simular árboles simples."
+    },
+    "windy": {
+      "title": "Planta de Viento",
+      "subtitle": "Simulación Avanzada",
+      "desc": "Un sistema-L complejo donde las reglas crean la ilusión de follaje denso arrastrado por el viento.",
+      "ruleNote": "Regla Compleja: X → F+[[X]-X]-F[-FX]+X. Esta regla genera la auto-similitud doblada."
+    },
+    "dragon": {
+      "title": "Curva del Dragón",
+      "subtitle": "Fractal de Heighway",
+      "desc": "Famoso fractal de auto-similitud que rellena el espacio mediante pliegues de 90 grados.",
+      "note": "La curva del dragón es un fractal de relleno de espacio que utiliza reglas de pliegue recursivas."
+    },
+    "koch": {
+      "title": "Copo de Nieve",
+      "subtitle": "Fractal de Koch",
+      "desc": "Una de las primeras curvas fractales descritas. Se construye iterativamente añadiendo triángulos equiláteros.",
+      "note": "El copo de nieve se forma empezando con un triángulo y añadiendo triángulos más pequeños en cada lado recursivamente."
+    },
+    "julia": {
+      "title": "Conjunto de Julia",
+      "subtitle": "Dinámica Compleja",
+      "desc": "Fractal generado iterando números complejos. Cada punto representa un comportamiento caótico o estable.",
+      "note": "Explora valores interesantes:",
+      "dendrite": "Dendrita",
+      "spiral": "Espiral"
+    },
+    "lifecycle": {
+      "title": "Ciclo de Vida",
+      "subtitle": "Simulación Paramétrica",
+      "desc": "Modelo abstracto del ciclo vital usando ecuaciones polares para los pétalos y filotaxis para el centro, afectadas por entropía simulada.",
+      "note": "Simulación matemática usando curvas logísticas para el crecimiento y funciones de decaimiento para el marchitamiento."
+    },
+    "sierpinski": {
+      "title": "Tetraedro Sierpinski",
+      "subtitle": "Rotación 3D Rodrigues",
+      "desc": "Fractal 3D que demuestra rotación alrededor de ejes arbitrarios."
+    },
+    "superformula": {
+      "title": "Superfórmula",
+      "subtitle": "Formas de Gielis",
+      "desc": "Ecuación polar que describe formas biológicas complejas."
+    },
+    "chladni": {
+      "title": "Figuras Chladni",
+      "subtitle": "Cimática",
+      "desc": "Patrones modales en una placa vibratoria."
+    },
+    "barnsley": {
+      "title": "Helecho Barnsley",
+      "subtitle": "Naturaleza Matemática",
+      "desc": "Fractal IFS que replica un helecho."
+    },
+    "phyllo": {
+      "title": "Filotaxis",
+      "subtitle": "Ángulo Dorado",
+      "desc": "Disposición espiral basada en el ángulo áureo."
+    },
+    "maurer": {
+      "title": "Rosa de Maurer",
+      "subtitle": "Geometría Floral",
+      "desc": "Curvas polares matemáticas."
+    },
+    "lorenz": {
+      "title": "Atractor de Lorenz",
+      "subtitle": "Teoría del Caos",
+      "desc": "El famoso Efecto Mariposa."
+    },
+    "mandelbrot": {
+      "title": "Conjunto de Mandelbrot",
+      "subtitle": "El Fractal Definitivo",
+      "desc": "El fractal más famoso del mundo. Contiene infinita complejidad en su frontera.",
+      "note": "Puntos interesantes para explorar:",
+      "seahorse": "Valle del Caballito de Mar (-0.75, 0.1)",
+      "spiral": "Espiral (-0.761574, -0.0847596)"
+    },
+    "sierpinskiTri": {
+      "title": "Triángulo de Sierpinski",
+      "subtitle": "Fractal Clásico",
+      "desc": "Uno de los fractales más reconocibles. Se construye eliminando triángulos recursivamente."
+    },
+    "menger": {
+      "title": "Esponja de Menger",
+      "subtitle": "Cubo Fractal 3D",
+      "desc": "Fractal tridimensional creado al eliminar cubos del centro de cada cara recursivamente."
+    },
+    "apollonian": {
+      "title": "Empaquetamiento de Apolonio",
+      "subtitle": "Círculos Tangentes",
+      "desc": "Fractal construido llenando el espacio entre círculos tangentes con más círculos."
+    },
+    "dla": {
+      "title": "Agregación Limitada por Difusión",
+      "subtitle": "Crecimiento de Coral",
+      "desc": "Simula crecimiento de coral, líquenes y cristales mediante partículas aleatorias que se adhieren a una estructura central."
+    },
+    "reactionDiffusion": {
+      "title": "Reacción-Difusión",
+      "subtitle": "Patrones de Turing",
+      "desc": "Sistema de ecuaciones que genera patrones orgánicos similares a pieles de animales, manchas de leopardo o rayas de cebra.",
+      "feedRate": "Tasa de Alimentación",
+      "killRate": "Tasa de Muerte"
+    },
+    "doublePendulum": {
+      "title": "Péndulo Doble",
+      "subtitle": "Dinámica Caótica",
+      "desc": "Sistema físico clásico que demuestra el caos determinista. Pequeñas diferencias en condiciones iniciales producen resultados completamente diferentes.",
+      "gravity": "Gravedad",
+      "trailLength": "Longitud del Rastro"
+    },
+    "waveInterference": {
+      "title": "Interferencia de Ondas",
+      "subtitle": "Física Ondulatoria",
+      "desc": "Visualización de patrones de interferencia cuando múltiples fuentes de ondas se superponen, creando regiones de constructiva y destructiva interferencia.",
+      "sources": "Fuentes"
+    }
+  }
+}
