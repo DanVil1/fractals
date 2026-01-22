@@ -607,7 +607,7 @@ function FractalGalleryContent() {
 
 export default function FractalGallery() {
   return (
-    <LanguageProvider defaultLanguage="es">
+    <LanguageProvider defaultLanguage="en">
       <FractalGalleryContent />
     </LanguageProvider>
   );

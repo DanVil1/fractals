@@ -26,7 +26,7 @@ interface LanguageProviderProps {
   defaultLanguage?: Language;
 }
 
-export function LanguageProvider({ children, defaultLanguage = 'es' }: LanguageProviderProps) {
+export function LanguageProvider({ children, defaultLanguage = 'en' }: LanguageProviderProps) {
   const [language, setLanguage] = useState<Language>(defaultLanguage);
 
   const t = useCallback((path: string): string => {
