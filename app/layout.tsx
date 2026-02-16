@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Fractals Gallery",
-  description: "A collection of beautiful fractal visualizations.",
+  description: "A collection of fractal visualizations.",
 };
 
 export default function RootLayout({
