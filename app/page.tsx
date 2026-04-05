@@ -1,13 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Download, ArrowLeft, Rotate3D } from 'lucide-react';
+import { Download, ArrowLeft, Rotate3D, Info } from 'lucide-react';
 
 // Unified dark neon slider class
 const sliderClass = "w-full h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-white";
 const axiSliderClass = "w-full h-1 bg-neutral-800 rounded-lg cursor-pointer accent-white";
 import { LanguageProvider, useLanguage } from './i18n';
-import { Header, FractalCard } from './components/ui';
+import { Header, FractalCard, InfoModal } from './components/ui';
+import { fractalFormulas } from './data/formulas';
 import { fractals } from './data/fractals';
 import {
   FlowerOfLife,
@@ -32,13 +33,26 @@ import {
   DLA,
   ReactionDiffusion,
   DoublePendulum,
-  WaveInterference
+  WaveInterference,
+  BurningShip,
+  NewtonFractal,
+  Buddhabrot,
+  HilbertCurve,
+  PeanoCurve,
+  CliffordAttractor,
+  RosslerAttractor,
+  PenroseTiling,
+  PythagorasTree,
+  SierpinskiCarpet,
+  PlasmaFractal,
+  LyapunovFractal
 } from './components/fractals';
 
 function FractalGalleryContent() {
   const { t } = useLanguage();
   const [activeFractal, setActiveFractal] = useState<string | null>(null);
   const isDark = true; // Always dark neon theme
+  const [infoOpen, setInfoOpen] = useState(false);
 
   // Controls State
   const [flowerLayers, setFlowerLayers] = useState(3);
@@ -90,6 +104,42 @@ function FractalGalleryContent() {
   const [waveFrequency, setWaveFrequency] = useState(0.1);
   const [waveSpeed, setWaveSpeed] = useState(1);
 
+  // Burning Ship
+  const [burningShipIter, setBurningShipIter] = useState(100);
+  const [burningShipZoom, setBurningShipZoom] = useState(1);
+  const [burningShipX, setBurningShipX] = useState(-0.4);
+  const [burningShipY, setBurningShipY] = useState(-0.6);
+  // Newton Fractal
+  const [newtonIter, setNewtonIter] = useState(50);
+  const [newtonExponent, setNewtonExponent] = useState(3);
+  // Buddhabrot
+  const [buddhabrotIter, setBuddhabrotIter] = useState(100);
+  const [buddhabrotSamples, setBuddhabrotSamples] = useState(20);
+  // Hilbert Curve
+  const [hilbertOrder, setHilbertOrder] = useState(5);
+  // Peano Curve
+  const [peanoOrder, setPeanoOrder] = useState(3);
+  // Clifford Attractor
+  const [cliffordA, setCliffordA] = useState(-1.4);
+  const [cliffordB, setCliffordB] = useState(1.6);
+  const [cliffordC, setCliffordC] = useState(1.0);
+  const [cliffordD, setCliffordD] = useState(0.7);
+  // Rössler Attractor
+  const [rosslerSpeed, setRosslerSpeed] = useState(1);
+  // Penrose Tiling
+  const [penroseDepth, setPenroseDepth] = useState(5);
+  // Pythagoras Tree
+  const [pythagorasDepth, setPythagorasDepth] = useState(10);
+  const [pythagorasLean, setPythagorasLean] = useState(0);
+  // Sierpinski Carpet
+  const [carpetDepth, setCarpetDepth] = useState(4);
+  // Plasma Fractal
+  const [plasmaRoughness, setPlasmaRoughness] = useState(1.0);
+  const [plasmaSeed, setPlasmaSeed] = useState(42);
+  // Lyapunov Fractal
+  const [lyapunovIter, setLyapunovIter] = useState(100);
+  const [lyapunovSeq, setLyapunovSeq] = useState('AB');
+
   const themeClasses = "bg-neutral-950 text-white";
   const controlPanelClasses = "bg-neutral-900 border-l border-neutral-800";
 
@@ -119,6 +169,18 @@ function FractalGalleryContent() {
       case 'reactionDiffusion': return <ReactionDiffusion isDark={isDark} feedRate={rdFeed} killRate={rdKill} />;
       case 'doublePendulum': return <DoublePendulum isDark={isDark} gravity={pendulumGravity} trailLength={pendulumTrail} />;
       case 'waveInterference': return <WaveInterference isDark={isDark} sources={waveSources} frequency={waveFrequency} speed={waveSpeed} />;
+      case 'burningShip': return <BurningShip isDark={isDark} maxIterations={burningShipIter} zoom={burningShipZoom} offsetX={burningShipX} offsetY={burningShipY} />;
+      case 'newton': return <NewtonFractal isDark={isDark} maxIterations={newtonIter} exponent={newtonExponent} />;
+      case 'buddhabrot': return <Buddhabrot isDark={isDark} maxIterations={buddhabrotIter} samples={buddhabrotSamples} />;
+      case 'hilbert': return <HilbertCurve isDark={isDark} order={hilbertOrder} />;
+      case 'peano': return <PeanoCurve isDark={isDark} order={peanoOrder} />;
+      case 'clifford': return <CliffordAttractor isDark={isDark} a={cliffordA} b={cliffordB} c={cliffordC} d={cliffordD} />;
+      case 'rossler': return <RosslerAttractor isDark={isDark} speed={rosslerSpeed} />;
+      case 'penrose': return <PenroseTiling isDark={isDark} depth={penroseDepth} />;
+      case 'pythagoras': return <PythagorasTree isDark={isDark} depth={pythagorasDepth} lean={pythagorasLean} />;
+      case 'sierpinskiCarpet': return <SierpinskiCarpet isDark={isDark} depth={carpetDepth} />;
+      case 'plasma': return <PlasmaFractal isDark={isDark} roughness={plasmaRoughness} seed={plasmaSeed} />;
+      case 'lyapunov': return <LyapunovFractal isDark={isDark} maxIterations={lyapunovIter} sequence={lyapunovSeq} />;
       case 'lorenz': return <LorenzAttractor isDark={isDark} speed={lorenzSpeed} />;
       case 'lsystem': return <LSystemTree isDark={isDark} iterations={lsystemIter} angleDeg={lsystemAngle} />;
       case 'windy': return <WindyPlant isDark={isDark} iterations={windyIter} angleDeg={windyAngle} />;
@@ -533,6 +595,222 @@ function FractalGalleryContent() {
             </div>
           </>
         );
+      case 'burningShip':
+        return (
+          <>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">{t('common.iterations')}</label>
+                <span className="text-xs text-neutral-500">{burningShipIter}</span>
+              </div>
+              <input type="range" min="20" max="200" step="10" value={burningShipIter} onChange={(e) => setBurningShipIter(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">{t('common.zoom')}</label>
+                <span className="text-xs text-neutral-500">{burningShipZoom.toFixed(1)}x</span>
+              </div>
+              <input type="range" min="1" max="50" step="1" value={burningShipZoom} onChange={(e) => setBurningShipZoom(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">X Offset</label>
+                <span className="text-xs text-neutral-500">{burningShipX.toFixed(2)}</span>
+              </div>
+              <input type="range" min="-2" max="1" step="0.01" value={burningShipX} onChange={(e) => setBurningShipX(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">Y Offset</label>
+                <span className="text-xs text-neutral-500">{burningShipY.toFixed(2)}</span>
+              </div>
+              <input type="range" min="-2" max="1" step="0.01" value={burningShipY} onChange={(e) => setBurningShipY(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+          </>
+        );
+      case 'newton':
+        return (
+          <>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">{t('common.iterations')}</label>
+                <span className="text-xs text-neutral-500">{newtonIter}</span>
+              </div>
+              <input type="range" min="10" max="100" step="5" value={newtonIter} onChange={(e) => setNewtonIter(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">Exponent (n)</label>
+                <span className="text-xs text-neutral-500">{newtonExponent}</span>
+              </div>
+              <input type="range" min="3" max="8" step="1" value={newtonExponent} onChange={(e) => setNewtonExponent(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+          </>
+        );
+      case 'buddhabrot':
+        return (
+          <>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">{t('common.iterations')}</label>
+                <span className="text-xs text-neutral-500">{buddhabrotIter}</span>
+              </div>
+              <input type="range" min="20" max="300" step="10" value={buddhabrotIter} onChange={(e) => setBuddhabrotIter(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">Samples (×10k)</label>
+                <span className="text-xs text-neutral-500">{buddhabrotSamples}</span>
+              </div>
+              <input type="range" min="5" max="50" step="5" value={buddhabrotSamples} onChange={(e) => setBuddhabrotSamples(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+            <p className="text-xs text-neutral-600 mt-2">⚠️ Higher samples may be slow</p>
+          </>
+        );
+      case 'hilbert':
+        return (
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <label className="text-sm font-medium text-neutral-400">Order</label>
+              <span className="text-xs text-neutral-500">{hilbertOrder}</span>
+            </div>
+            <input type="range" min="1" max="7" step="1" value={hilbertOrder} onChange={(e) => setHilbertOrder(parseInt(e.target.value))} className={sliderClass} />
+          </div>
+        );
+      case 'peano':
+        return (
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <label className="text-sm font-medium text-neutral-400">Order</label>
+              <span className="text-xs text-neutral-500">{peanoOrder}</span>
+            </div>
+            <input type="range" min="1" max="4" step="1" value={peanoOrder} onChange={(e) => setPeanoOrder(parseInt(e.target.value))} className={sliderClass} />
+            <p className="text-xs text-neutral-600 mt-2">⚠️ Order 4+ may be slow</p>
+          </div>
+        );
+      case 'clifford':
+        return (
+          <>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">a</label>
+                <span className="text-xs text-neutral-500">{cliffordA.toFixed(1)}</span>
+              </div>
+              <input type="range" min="-3" max="3" step="0.1" value={cliffordA} onChange={(e) => setCliffordA(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">b</label>
+                <span className="text-xs text-neutral-500">{cliffordB.toFixed(1)}</span>
+              </div>
+              <input type="range" min="-3" max="3" step="0.1" value={cliffordB} onChange={(e) => setCliffordB(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">c</label>
+                <span className="text-xs text-neutral-500">{cliffordC.toFixed(1)}</span>
+              </div>
+              <input type="range" min="-3" max="3" step="0.1" value={cliffordC} onChange={(e) => setCliffordC(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">d</label>
+                <span className="text-xs text-neutral-500">{cliffordD.toFixed(1)}</span>
+              </div>
+              <input type="range" min="-3" max="3" step="0.1" value={cliffordD} onChange={(e) => setCliffordD(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+          </>
+        );
+      case 'rossler':
+        return (
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <label className="text-sm font-medium text-neutral-400">{t('common.speed')}</label>
+              <span className="text-xs text-neutral-500">{rosslerSpeed}x</span>
+            </div>
+            <input type="range" min="0.5" max="5" step="0.5" value={rosslerSpeed} onChange={(e) => setRosslerSpeed(parseFloat(e.target.value))} className={sliderClass} />
+          </div>
+        );
+      case 'penrose':
+        return (
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <label className="text-sm font-medium text-neutral-400">{t('common.depth')}</label>
+              <span className="text-xs text-neutral-500">{penroseDepth}</span>
+            </div>
+            <input type="range" min="1" max="7" step="1" value={penroseDepth} onChange={(e) => setPenroseDepth(parseInt(e.target.value))} className={sliderClass} />
+          </div>
+        );
+      case 'pythagoras':
+        return (
+          <>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">{t('common.depth')}</label>
+                <span className="text-xs text-neutral-500">{pythagorasDepth}</span>
+              </div>
+              <input type="range" min="1" max="14" step="1" value={pythagorasDepth} onChange={(e) => setPythagorasDepth(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">Lean</label>
+                <span className="text-xs text-neutral-500">{pythagorasLean}°</span>
+              </div>
+              <input type="range" min="-30" max="30" step="1" value={pythagorasLean} onChange={(e) => setPythagorasLean(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+          </>
+        );
+      case 'sierpinskiCarpet':
+        return (
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <label className="text-sm font-medium text-neutral-400">{t('common.depth')}</label>
+              <span className="text-xs text-neutral-500">{carpetDepth}</span>
+            </div>
+            <input type="range" min="1" max="5" step="1" value={carpetDepth} onChange={(e) => setCarpetDepth(parseInt(e.target.value))} className={sliderClass} />
+          </div>
+        );
+      case 'plasma':
+        return (
+          <>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">Roughness</label>
+                <span className="text-xs text-neutral-500">{plasmaRoughness.toFixed(1)}</span>
+              </div>
+              <input type="range" min="0.2" max="2.0" step="0.1" value={plasmaRoughness} onChange={(e) => setPlasmaRoughness(parseFloat(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">Seed</label>
+                <span className="text-xs text-neutral-500">{plasmaSeed}</span>
+              </div>
+              <input type="range" min="1" max="100" step="1" value={plasmaSeed} onChange={(e) => setPlasmaSeed(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+          </>
+        );
+      case 'lyapunov':
+        return (
+          <>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">{t('common.iterations')}</label>
+                <span className="text-xs text-neutral-500">{lyapunovIter}</span>
+              </div>
+              <input type="range" min="20" max="200" step="10" value={lyapunovIter} onChange={(e) => setLyapunovIter(parseInt(e.target.value))} className={sliderClass} />
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <label className="text-sm font-medium text-neutral-400">Sequence</label>
+              </div>
+              <div className="flex gap-2 flex-wrap">
+                {['AB', 'AABB', 'ABAB', 'AAAB', 'ABBB'].map(seq => (
+                  <button key={seq} onClick={() => setLyapunovSeq(seq)} className={`px-3 py-1 rounded text-xs font-mono ${lyapunovSeq === seq ? 'bg-white text-neutral-900' : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700'}`}>{seq}</button>
+                ))}
+              </div>
+            </div>
+          </>
+        );
       default:
         return null;
     }
@@ -577,13 +855,22 @@ function FractalGalleryContent() {
               </button>
             </div>
             <div className={`w-80 flex flex-col z-10 ${controlPanelClasses}`}>
-              <div className="p-6 border-b border-neutral-800">
-                <h2 className="text-lg font-semibold text-white mb-0.5">
-                  {currentFractal ? t(currentFractal.titleKey) : ''}
-                </h2>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest">
-                  {t('common.configuration')}
-                </p>
+              <div className="p-6 border-b border-neutral-800 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-semibold text-white mb-0.5">
+                    {currentFractal ? t(currentFractal.titleKey) : ''}
+                  </h2>
+                  <p className="text-xs text-neutral-500 uppercase tracking-widest">
+                    {t('common.configuration')}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setInfoOpen(true)}
+                  className="p-1.5 rounded-lg text-neutral-500 hover:text-white hover:bg-neutral-800 transition-colors"
+                  title="Info"
+                >
+                  <Info size={18} />
+                </button>
               </div>
               <div className="flex-1 p-6 space-y-8 overflow-y-auto">
                 {renderControls()}
@@ -599,6 +886,16 @@ function FractalGalleryContent() {
               </div>
             </div>
           </>
+        )}
+        {activeFractal && currentFractal && (
+          <InfoModal
+            isOpen={infoOpen}
+            onClose={() => setInfoOpen(false)}
+            title={t(currentFractal.titleKey)}
+            subtitle={t(currentFractal.subtitleKey)}
+            description={t(currentFractal.descKey)}
+            formula={fractalFormulas[activeFractal]}
+          />
         )}
       </main>
     </div>

@@ -4,6 +4,8 @@
     "explore": "Explora la belleza matemática.",
     "configuration": "Configuración",
     "saveImage": "Guardar Imagen",
+    "equations": "Ecuaciones",
+    "parameters": "Parámetros",
     "layers": "Capas",
     "zoom": "Zoom",
     "depth": "Profundidad",
@@ -152,6 +154,66 @@
       "subtitle": "Física Ondulatoria",
       "desc": "Visualización de patrones de interferencia cuando múltiples fuentes de ondas se superponen, creando regiones de constructiva y destructiva interferencia.",
       "sources": "Fuentes"
+    },
+    "burningShip": {
+      "title": "Barco en Llamas",
+      "subtitle": "Fractal de Escape",
+      "desc": "Variante del conjunto de Mandelbrot que toma valores absolutos antes de elevar al cuadrado, creando una silueta de barco en llamas."
+    },
+    "newton": {
+      "title": "Fractal de Newton",
+      "subtitle": "Búsqueda de Raíces",
+      "desc": "Fractal generado por el método de Newton para encontrar raíces de polinomios complejos. Cada dominio de color muestra a qué raíz converge la iteración."
+    },
+    "buddhabrot": {
+      "title": "Buddhabrot",
+      "subtitle": "Mapa de Densidad",
+      "desc": "Representación fantasmal del conjunto de Mandelbrot trazando las trayectorias de puntos que escapan, asemejándose a un Buda sentado."
+    },
+    "hilbert": {
+      "title": "Curva de Hilbert",
+      "subtitle": "Curva que Llena el Espacio",
+      "desc": "Una curva fractal continua que visita cada punto en una cuadrícula. Preserva la localidad: puntos cercanos en la curva están cercanos en el espacio."
+    },
+    "peano": {
+      "title": "Curva de Peano",
+      "subtitle": "La Primera Curva Espacial",
+      "desc": "La primera curva que llena el espacio conocida, descubierta por Giuseppe Peano en 1890. Mapea un segmento de línea continuamente sobre un cuadrado."
+    },
+    "clifford": {
+      "title": "Atractor de Clifford",
+      "subtitle": "Atractor Extraño",
+      "desc": "Un atractor extraño basado en partículas con cuatro parámetros que producen patrones arremolinados. Pequeños cambios en parámetros crean formas dramáticamente diferentes."
+    },
+    "rossler": {
+      "title": "Atractor de Rössler",
+      "subtitle": "Sistema Caótico",
+      "desc": "Un atractor caótico más simple que Lorenz, diseñado por Otto Rössler. Presenta una estructura de banda plegada con rutas de duplicación de período al caos."
+    },
+    "penrose": {
+      "title": "Teselación de Penrose",
+      "subtitle": "Teselación Aperiódica",
+      "desc": "Una teselación aperiódica con simetría rotacional de 5 pliegues que nunca se repite. Descubierta por Roger Penrose, tiene conexiones con los cuasicristales."
+    },
+    "pythagoras": {
+      "title": "Árbol de Pitágoras",
+      "subtitle": "Fractal de Cuadrados",
+      "desc": "Un fractal construido con cuadrados. Cada cuadrado produce dos cuadrados más pequeños formando un triángulo rectángulo, creando una estructura arbórea."
+    },
+    "sierpinskiCarpet": {
+      "title": "Alfombra de Sierpinski",
+      "subtitle": "Fractal 2D",
+      "desc": "La contraparte 2D de la Esponja de Menger. Se construye eliminando recursivamente el noveno central de cada cuadrado."
+    },
+    "plasma": {
+      "title": "Fractal de Plasma",
+      "subtitle": "Diamante-Cuadrado",
+      "desc": "Ruido fractal tipo terreno generado por el algoritmo diamante-cuadrado. Usado en generación procedural de paisajes, nubes y texturas."
+    },
+    "lyapunov": {
+      "title": "Fractal de Lyapunov",
+      "subtitle": "Mapa de Estabilidad",
+      "desc": "Fractal colorido que mapea el exponente de Lyapunov de mapas logísticos iterados con parámetros alternantes. Las regiones azules son estables, las cálidas son caóticas."
     }
   }
 }

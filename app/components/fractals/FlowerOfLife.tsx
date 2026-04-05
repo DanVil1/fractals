@@ -59,10 +59,13 @@ const FlowerOfLife: React.FC<FlowerOfLifeProps> = ({ layers, zoom, isDark }) => 
 
   const data = generateCircles();
 
+  // Size the viewBox to fit all circles (outermost center + radius) with padding
+  const extent = radius * (layers + 1) + radius + 20;
+
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden cursor-move">
       <svg
-        viewBox="-200 -200 400 400"
+        viewBox={`${-extent} ${-extent} ${extent * 2} ${extent * 2}`}
         className="w-full h-full transition-transform duration-100 ease-linear"
         style={{ transform: `scale(${zoom})` }}
       >

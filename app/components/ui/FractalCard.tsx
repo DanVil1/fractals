@@ -25,11 +25,8 @@ const FractalCard: React.FC<FractalCardProps> = ({ fractal, onClick }) => {
       </div>
       <div className="w-full">
         <h3 className="text-lg font-semibold text-white">{t(fractal.titleKey)}</h3>
-        <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">
+        <p className="text-xs text-neutral-500 uppercase tracking-wider">
           {t(fractal.subtitleKey)}
-        </p>
-        <p className="text-sm text-neutral-400 line-clamp-3">
-          {t(fractal.descKey)}
         </p>
       </div>
     </div>

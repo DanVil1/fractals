@@ -19,7 +19,19 @@ import {
   TreeDeciduous,
   Fingerprint,
   Locate,
-  Radio
+  Radio,
+  Flame,
+  Target,
+  Ghost,
+  Route,
+  Grid3x3,
+  Waves,
+  RotateCw,
+  Pentagon,
+  Binary,
+  LayoutGrid,
+  Cloud,
+  BarChart3,
 } from 'lucide-react';
 import type { FractalInfo } from '../lib/types';
 
@@ -207,5 +219,101 @@ export const fractals: FractalInfo[] = [
     icon: Radio, 
     color: "text-sky-400", 
     descKey: "fractals.waveInterference.desc" 
+  },
+  { 
+    id: 'burningShip', 
+    titleKey: 'fractals.burningShip.title', 
+    subtitleKey: 'fractals.burningShip.subtitle', 
+    icon: Flame, 
+    color: "text-orange-500", 
+    descKey: "fractals.burningShip.desc" 
+  },
+  { 
+    id: 'newton', 
+    titleKey: 'fractals.newton.title', 
+    subtitleKey: 'fractals.newton.subtitle', 
+    icon: Target, 
+    color: "text-emerald-500", 
+    descKey: "fractals.newton.desc" 
+  },
+  { 
+    id: 'buddhabrot', 
+    titleKey: 'fractals.buddhabrot.title', 
+    subtitleKey: 'fractals.buddhabrot.subtitle', 
+    icon: Ghost, 
+    color: "text-blue-300", 
+    descKey: "fractals.buddhabrot.desc" 
+  },
+  { 
+    id: 'hilbert', 
+    titleKey: 'fractals.hilbert.title', 
+    subtitleKey: 'fractals.hilbert.subtitle', 
+    icon: Route, 
+    color: "text-violet-400", 
+    descKey: "fractals.hilbert.desc" 
+  },
+  { 
+    id: 'peano', 
+    titleKey: 'fractals.peano.title', 
+    subtitleKey: 'fractals.peano.subtitle', 
+    icon: Grid3x3, 
+    color: "text-red-400", 
+    descKey: "fractals.peano.desc" 
+  },
+  { 
+    id: 'clifford', 
+    titleKey: 'fractals.clifford.title', 
+    subtitleKey: 'fractals.clifford.subtitle', 
+    icon: Waves, 
+    color: "text-amber-300", 
+    descKey: "fractals.clifford.desc" 
+  },
+  { 
+    id: 'rossler', 
+    titleKey: 'fractals.rossler.title', 
+    subtitleKey: 'fractals.rossler.subtitle', 
+    icon: RotateCw, 
+    color: "text-teal-300", 
+    descKey: "fractals.rossler.desc" 
+  },
+  { 
+    id: 'penrose', 
+    titleKey: 'fractals.penrose.title', 
+    subtitleKey: 'fractals.penrose.subtitle', 
+    icon: Pentagon, 
+    color: "text-pink-300", 
+    descKey: "fractals.penrose.desc" 
+  },
+  { 
+    id: 'pythagoras', 
+    titleKey: 'fractals.pythagoras.title', 
+    subtitleKey: 'fractals.pythagoras.subtitle', 
+    icon: Binary, 
+    color: "text-green-400", 
+    descKey: "fractals.pythagoras.desc" 
+  },
+  { 
+    id: 'sierpinskiCarpet', 
+    titleKey: 'fractals.sierpinskiCarpet.title', 
+    subtitleKey: 'fractals.sierpinskiCarpet.subtitle', 
+    icon: LayoutGrid, 
+    color: "text-purple-400", 
+    descKey: "fractals.sierpinskiCarpet.desc" 
+  },
+  { 
+    id: 'plasma', 
+    titleKey: 'fractals.plasma.title', 
+    subtitleKey: 'fractals.plasma.subtitle', 
+    icon: Cloud, 
+    color: "text-cyan-300", 
+    descKey: "fractals.plasma.desc" 
+  },
+  { 
+    id: 'lyapunov', 
+    titleKey: 'fractals.lyapunov.title', 
+    subtitleKey: 'fractals.lyapunov.subtitle', 
+    icon: BarChart3, 
+    color: "text-yellow-400", 
+    descKey: "fractals.lyapunov.desc" 
   }
 ];
